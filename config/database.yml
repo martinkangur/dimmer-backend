@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  prepared_statement: false
+  url: postgresql://postgres.pvkoaxkzogbgkaaccqnf:aQRrrAAgTtupj7mY6LCr@aws-0-eu-central-1.pooler.supabase.com:6543/postgres?prepared_statements=false
+
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -1,0 +1,11 @@
+<div id="<%= dom_id device %>">
+<%= device.name %> <%= time_ago_in_words(device.updated_at) %>
+<% sensors = device.device_sensors.select('DISTINCT ON (code) *').order(:code, updated_at: :desc) %>
+
+    <% sensors.each do |s| %>
+        <div>
+            <%= s.code %> - <%= s.value %> <%= s.created_at %>
+        <div>
+    <% end %>
+
+</div>
